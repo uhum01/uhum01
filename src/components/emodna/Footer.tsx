@@ -35,9 +35,9 @@ const LEGAL = {
       },
       {
         heading: "Contact",
-        body: "For questions, contact us at support@ahumapp.com",
+        body: "For questions, contact us at uhum.official@gmail.com",
         isEmail: true,
-        email: "support@ahumapp.com",
+        email: "uhum.official@gmail.com",
       },
     ],
   },
@@ -68,9 +68,9 @@ const LEGAL = {
       },
       {
         heading: "Contact",
-        body: "For questions, contact us at support@ahumapp.com",
+        body: "For questions, contact us at uhum.official@gmail.com",
         isEmail: true,
-        email: "support@ahumapp.com",
+        email: "uhum.official@gmail.com",
       },
     ],
   },

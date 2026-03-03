@@ -108,7 +108,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
 
           {/* Email link */}
           <a
-            href="mailto:support@ahumapp.com"
+            href="mailto:uhum.official@gmail.com"
             style={{
               fontSize: "1.05rem", fontWeight: 700,
               color: "#4aafda", textDecoration: "none",
@@ -117,7 +117,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
             onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
             onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
           >
-            support@ahumapp.com
+            uhum.official@gmail.com
           </a>
         </motion.div>
       </motion.div>
