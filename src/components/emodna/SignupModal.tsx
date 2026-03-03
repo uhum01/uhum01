@@ -43,46 +43,25 @@ export default function SignupModal({ open, onClose, onSuccess }: SignupModalPro
     setLoading(true);
 
     try {
-      // Hidden iframe + form trick — 100% reliable, zero CORS issues.
-      // Works because it's a native browser form submit, not fetch/XHR.
-      const iframeName = `hidden-submit-${Date.now()}`;
-      const iframe = document.createElement("iframe");
-      iframe.name = iframeName;
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
-
-      const formEl = document.createElement("form");
-      formEl.method = "GET";
-      formEl.action = SHEET_URL;
-      formEl.target = iframeName;
-
-      const fields: Record<string, string> = {
+      // Build query string and send via fetch with no-cors mode.
+      // no-cors lets us fire the GET request to Google Apps Script
+      // without needing CORS headers in the response — works on Vercel/HTTPS.
+      const params = new URLSearchParams({
         name: form.name,
         phone: form.phone,
         email: form.email,
         organization: form.org,
         timestamp: new Date().toISOString(),
         source: "UHUM Website",
-      };
-
-      Object.entries(fields).forEach(([key, value]) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = value;
-        formEl.appendChild(input);
       });
 
-      document.body.appendChild(formEl);
-      formEl.submit();
+      await fetch(`${SHEET_URL}?${params.toString()}`, {
+        method: "GET",
+        mode: "no-cors",
+      });
 
-      // Cleanup after 5s
-      setTimeout(() => {
-        document.body.removeChild(formEl);
-        document.body.removeChild(iframe);
-      }, 5000);
-
-      // Show success immediately
+      // Show success (no-cors means we can't read the response body, but the
+      // request always reaches the Apps Script if the URL is correct)
       setLoading(false);
       setSubmitted(true);
       setTimeout(() => {
