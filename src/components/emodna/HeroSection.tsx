@@ -92,7 +92,7 @@ export default function HeroSection({ onOpenModal, revealed = false }: HeroSecti
           animate={revealed ? "show" : "hidden"}
           transition={transition(0.26, 0.9)}
         >
-          Ahum is a private reflection app that helps you check in daily,
+          Uhum is a private reflection app that helps you check in daily,
           speak your thoughts, and notice emotional patterns over time.
           <br /><br />
           No pressure. No performance tracking. Just awareness.

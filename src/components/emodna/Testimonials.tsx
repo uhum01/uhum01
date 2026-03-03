@@ -68,6 +68,9 @@ export default function Testimonials() {
         <p className="text-base text-soft leading-[1.8] max-w-[550px] mx-auto">
           Real people, real emotional breakthroughs — powered by UHUM.
         </p>
+        <p className="text-xs text-soft/60 mt-3 italic tracking-wide">
+          * This review is based on ground research
+        </p>
       </div>
 
       {/* Carousel */}

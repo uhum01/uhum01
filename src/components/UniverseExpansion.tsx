@@ -5,8 +5,15 @@ import { motion } from "framer-motion";
 const CALM = [0.16, 1, 0.3, 1] as const;
 const SILK = [0.22, 1, 0.36, 1] as const;
 
-/* ─── Continuity particles (carry over from intro) ─────────────────── */
-const CONT_PARTICLES = Array.from({ length: 22 }, (_, i) => ({
+/* ─── Mobile detection ───────────────────────────────────────────── */
+const IS_MOBILE =
+    typeof window !== "undefined" &&
+    (window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent));
+
+/* ─── Continuity particles ───────────────────────────────────────── */
+// Mobile: 8 particles  |  Desktop: 22 particles
+const PARTICLE_COUNT = IS_MOBILE ? 8 : 22;
+const CONT_PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -48,7 +55,7 @@ export default function UniverseExpansion({ onComplete }: Props) {
         <motion.div
             style={{
                 position: "fixed", inset: 0, zIndex: 500,
-                perspective: "1400px",
+                ...(IS_MOBILE ? {} : { perspective: "1400px" }),
                 overflow: "hidden",
                 pointerEvents: "none",
                 willChange: "opacity",
@@ -100,14 +107,14 @@ export default function UniverseExpansion({ onComplete }: Props) {
                     transform: "translate(-50%, -50%)",
                     borderRadius: "50%",
                     background: "radial-gradient(circle, rgba(74,175,218,0.28) 0%, rgba(126,200,227,0.14) 38%, rgba(244,165,122,0.06) 65%, transparent 80%)",
-                    filter: "blur(55px)",
+                    filter: IS_MOBILE ? "blur(28px)" : "blur(55px)",
                     pointerEvents: "none",
                 }}
-                animate={{
-                    opacity: [0, 0.14, 0.06, 0],
-                    scale: [0.5, 1.3, 1.9, 2.4],
-                }}
-                transition={{ duration: 2.2, ease: CALM, times: [0, 0.3, 0.65, 1] }}
+                animate={IS_MOBILE
+                    ? { opacity: [0, 0.1, 0], scale: [0.5, 1.5, 2.2] }
+                    : { opacity: [0, 0.14, 0.06, 0], scale: [0.5, 1.3, 1.9, 2.4] }
+                }
+                transition={{ duration: IS_MOBILE ? 1.6 : 2.2, ease: CALM, times: IS_MOBILE ? [0, 0.4, 1] : [0, 0.3, 0.65, 1] }}
             />
 
             {/* ── Continuity particles ─────────────────────────────────── */}
@@ -152,7 +159,7 @@ export default function UniverseExpansion({ onComplete }: Props) {
                     top: 0, left: "10%",
                     width: "80%", height: "35vh",
                     background: "radial-gradient(ellipse 100% 100% at 50% 0%, rgba(74,175,218,0.18) 0%, transparent 70%)",
-                    filter: "blur(30px)",
+                    filter: IS_MOBILE ? "blur(14px)" : "blur(30px)",
                     pointerEvents: "none",
                 }}
                 animate={{ opacity: [0, 0.8, 0.3, 0] }}
@@ -166,7 +173,7 @@ export default function UniverseExpansion({ onComplete }: Props) {
                     bottom: 0, left: "20%",
                     width: "60%", height: "30vh",
                     background: "radial-gradient(ellipse 100% 100% at 50% 100%, rgba(244,165,122,0.14) 0%, transparent 70%)",
-                    filter: "blur(40px)",
+                    filter: IS_MOBILE ? "blur(18px)" : "blur(40px)",
                     pointerEvents: "none",
                 }}
                 animate={{ opacity: [0, 0.65, 0.2, 0] }}
