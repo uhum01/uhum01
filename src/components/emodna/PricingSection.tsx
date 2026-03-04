@@ -26,8 +26,8 @@ export default function PricingSection({ onOpenModal }: PricingSectionProps) {
           <div
             key={p.plan}
             className={`rounded-3xl p-8 border-2 transition-all duration-300 hover:-translate-y-1.5 ${p.featured
-                ? 'gradient-primary text-primary-foreground border-transparent shadow-sky-lg scale-[1.03]'
-                : 'bg-card text-foreground border-border'
+              ? 'gradient-primary text-primary-foreground border-transparent shadow-sky-lg scale-[1.03]'
+              : 'bg-card text-foreground border-border'
               }`}
           >
             {p.badge && (
@@ -50,8 +50,8 @@ export default function PricingSection({ onOpenModal }: PricingSectionProps) {
             <button
               onClick={onOpenModal}
               className={`w-full py-3 rounded-full font-body font-bold text-[0.95rem] cursor-pointer transition-all duration-300 border-2 ${p.featured
-                  ? 'bg-card text-sky-accent border-card hover:bg-card/90'
-                  : 'bg-card text-dark border-border hover:bg-sky'
+                ? 'bg-card text-sky-accent border-card hover:bg-card/90'
+                : 'bg-card text-dark border-border hover:bg-sky'
                 }`}
             >
               {p.featured ? 'Get Started →' : 'Choose Plan'}

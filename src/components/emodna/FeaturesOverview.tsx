@@ -1,7 +1,7 @@
 import { FEATURE_CARDS } from "./data";
 import { use3DScroll } from "@/hooks/use3DScroll";
 import {
-  useState, useEffect, useCallback, useRef,
+  useState, useEffect, useCallback, useRef, ReactNode,
   MouseEvent as ME,
 } from "react";
 import {
@@ -20,7 +20,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 /* ─── Single Carousel Card ──────────────────────────────────────── */
 interface CardProps {
-  card: typeof FEATURE_CARDS[0];
+  card: typeof FEATURE_CARDS[0] & { icon: ReactNode };
   offset: number;        /* -2…2, 0 = center */
   isHovered: boolean;    /* this card is the hovered one */
   anyHovered: boolean;   /* any card in carousel is hovered */

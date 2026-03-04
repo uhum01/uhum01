@@ -1,5 +1,7 @@
 ﻿import { STEPS } from "./data";
 import { use3DScroll } from "@/hooks/use3DScroll";
+import { GiDna1 } from "react-icons/gi";
+import { MdOutlineMap, MdOutlineTrendingUp } from "react-icons/md";
 
 /* ─── Step Visual Cards ──────────────────────────────────────────── */
 function AssessmentCard() {
@@ -11,7 +13,7 @@ function AssessmentCard() {
   return (
     <div className="bg-white rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-100 w-full max-w-[320px]">
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-xl">🧬</span>
+        <span className="text-xl flex items-center"><GiDna1 size={22} color="#4AAFDA" /></span>
         <div>
           <div className="text-xs font-bold text-dark">UHUM Assessment</div>
           <div className="text-[0.7rem] text-soft">Step 2 of 5 · 4 mins left</div>
@@ -86,7 +88,7 @@ function RoadmapCard() {
   return (
     <div className="bg-white rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-100 w-full max-w-[320px]">
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-xl">🗺️</span>
+        <span className="text-xl flex items-center"><MdOutlineMap size={22} color="#F4A57A" /></span>
         <div>
           <div className="text-xs font-bold text-dark">Growth Roadmap</div>
           <div className="text-[0.7rem] text-soft">Week 1 · 4-Week Plan</div>
@@ -120,7 +122,7 @@ function EvolutionCard() {
   return (
     <div className="bg-[hsl(216,36%,14%)] rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.22)] w-full max-w-[320px]">
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-xl">📈</span>
+        <span className="text-xl flex items-center"><MdOutlineTrendingUp size={22} color="#6ECBA8" /></span>
         <div>
           <div className="text-white font-bold text-sm">UHUM Growth</div>
           <div className="text-white/40 text-xs">4-Week Evolution</div>

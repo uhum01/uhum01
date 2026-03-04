@@ -1,11 +1,14 @@
 ﻿import { useEffect, useRef, useState, useCallback } from "react";
+import { GiDna1, GiMedal } from "react-icons/gi";
+import { MdOutlineBarChart } from "react-icons/md";
+import { FiTarget } from "react-icons/fi";
 import { HEATMAP_COLORS } from "./data";
 
 /* ─────────────────────────────────────────
    Types
 ───────────────────────────────────────── */
 interface StatCard {
-  icon: string;
+  icon: React.ReactNode;
   val: string;
   lbl: string;
   change: string;
@@ -26,22 +29,22 @@ interface DonutSeg {
 ───────────────────────────────────────── */
 const STAT_CARDS: StatCard[] = [
   {
-    icon: "🧬", val: "78", lbl: "UHUM Score", change: "+3 this week",
+    icon: <GiDna1 size={24} />, val: "78", lbl: "UHUM Score", change: "+3 this week",
     changePositive: true, detail: "Top 18% of all users",
     trend: [70, 71, 73, 74, 75, 76, 78],
   },
   {
-    icon: "📊", val: "23", lbl: "Check-ins Done", change: "92% consistency",
+    icon: <MdOutlineBarChart size={24} />, val: "23", lbl: "Check-ins Done", change: "92% consistency",
     changePositive: true, detail: "Streak: 6 days",
     trend: [18, 19, 20, 20, 21, 22, 23],
   },
   {
-    icon: "🎯", val: "12", lbl: "Triggers Mapped", change: "+2 new",
+    icon: <FiTarget size={22} />, val: "12", lbl: "Triggers Mapped", change: "+2 new",
     changePositive: true, detail: "3 resolved this week",
     trend: [8, 9, 9, 10, 10, 11, 12],
   },
   {
-    icon: "🏅", val: "6", lbl: "Badges Earned", change: "1 pending",
+    icon: <GiMedal size={24} />, val: "6", lbl: "Badges Earned", change: "1 pending",
     changePositive: false, detail: "Next: Resilience Streak",
     trend: [4, 4, 5, 5, 5, 6, 6],
   },

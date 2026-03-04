@@ -1,6 +1,8 @@
 ﻿import { useState } from "react";
 import { DIMENSIONS } from "./data";
 import { use3DScroll } from "@/hooks/use3DScroll";
+import { GiDna1, GiFireBowl } from "react-icons/gi";
+import { RiBubbleChartLine, RiSparkling2Line } from "react-icons/ri";
 
 /* ─── Radar Visual ──────────────────────────────────────────────── */
 function RadarCard() {
@@ -93,7 +95,9 @@ function BlueprintCard() {
   return (
     <div className="bg-white rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-100">
       <div className="flex items-center gap-3 mb-5">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center text-xl" style={{ background: 'linear-gradient(135deg, hsl(197,63%,57%), hsl(20,85%,72%))' }}>🧬</div>
+        <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, hsl(197,63%,57%), hsl(20,85%,72%))' }}>
+          <GiDna1 size={22} color="white" />
+        </div>
         <div>
           <div className="font-bold text-dark text-sm">UHUM Certificate</div>
           <div className="text-xs text-soft">Issued after 30-day journey</div>
@@ -102,7 +106,7 @@ function BlueprintCard() {
       <div className="space-y-2.5">
         {[
           { label: 'UHUM Score', val: '78 → 91', color: '#4AAFDA' },
-          { label: 'Growth Streak', val: '30 days 🔥', color: '#F4A57A' },
+          { label: 'Growth Streak', val: <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>30 days <GiFireBowl size={14} color="#F4A57A" /></span>, color: '#F4A57A' },
           { label: 'Badges Earned', val: '6 milestones', color: '#6ECBA8' },
           { label: 'Profile Type', val: 'Reflective Processor', color: '#B8A4E0' },
         ].map(r => (

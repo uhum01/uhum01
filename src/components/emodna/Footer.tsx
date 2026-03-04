@@ -1,13 +1,16 @@
 ﻿import { useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { MdOutlineLock, MdOutlineAssignment } from "react-icons/md";
+import { GiDna1 } from "react-icons/gi";
+import type { ReactNode } from "react";
 
 /* ─── Legal modal content ──────────────────────────────────────────── */
 const LEGAL = {
   privacy: {
     title: "Privacy Policy",
     badge: "Pre-Launch Version",
-    icon: "🔒",
+    icon: <MdOutlineLock size={16} />,
     sections: [
       {
         heading: "Effective Date",
@@ -44,7 +47,7 @@ const LEGAL = {
   terms: {
     title: "Terms of Service",
     badge: "Pre-Launch Version",
-    icon: "📋",
+    icon: <MdOutlineAssignment size={16} />,
     sections: [
       {
         heading: "Effective Date",
@@ -198,7 +201,7 @@ function LegalModal({ type, onClose }: { type: LegalKey; onClose: () => void }) 
               marginTop: 28, fontSize: "0.73rem", color: "#94a3b8",
               textAlign: "center", lineHeight: 1.6,
             }}>
-              🔒 This is a pre-launch version. Full policies will be published at launch.
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><MdOutlineLock size={14} /> This is a pre-launch version. Full policies will be published at launch.</span>
             </p>
           </div>
         </motion.div>
@@ -276,7 +279,7 @@ export default function Footer() {
               Terms of Service
             </button>
             <span style={{ opacity: 0.2 }}>·</span>
-            <span>Made with 🧬 for emotional wellness</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>Made with <GiDna1 size={15} color="#4AAFDA" /> for emotional wellness</span>
           </div>
         </div>
       </footer>

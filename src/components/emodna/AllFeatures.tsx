@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect, useCallback, MouseEvent as ME } from "react";
+﻿import { useState, useRef, useEffect, useCallback, MouseEvent as ME, ReactNode } from "react";
 import {
   motion, AnimatePresence, useInView, useReducedMotion,
   useSpring, useMotionValue, useTransform,
@@ -194,7 +194,7 @@ function LiquidTabs({ tabs, active, onChange, show }: {
 
 /* ── Glassmorphic Feature Card (peach-adapted) ──────────── */
 function Card3D({ icon, title, desc, index, zDepth }: {
-  icon: string; title: string; desc: string; index: number; zDepth: number;
+  icon: ReactNode; title: string; desc: string; index: number; zDepth: number;
 }) {
   const [hov, setHov] = useState(false);
   const rX = useSpring(0, { stiffness: 220, damping: 28 });

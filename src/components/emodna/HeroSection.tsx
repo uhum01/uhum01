@@ -1,6 +1,7 @@
 ﻿import { motion } from "framer-motion";
 import { DIMENSIONS } from "./data";
 import { use3DScroll, use3DChildrenReveal } from "@/hooks/use3DScroll";
+import { GiDna1 } from "react-icons/gi";
 
 /* ─── Stagger variants for the cinematic post-intro reveal ──────── */
 const CALM = [0.16, 1, 0.3, 1] as const;
@@ -138,8 +139,8 @@ export default function HeroSection({ onOpenModal, revealed = false }: HeroSecti
           transition={transition(0.55, 1.0)}
         >
           <div className="flex items-center gap-3.5 mb-5">
-            <div className="w-[50px] h-[50px] rounded-full gradient-primary flex items-center justify-center text-[1.4rem]">
-              🧬
+            <div className="w-[50px] h-[50px] rounded-full gradient-primary flex items-center justify-center">
+              <GiDna1 size={26} color="white" />
             </div>
             <div>
               <div className="text-sm font-bold text-dark">Your UHUM Profile</div>
